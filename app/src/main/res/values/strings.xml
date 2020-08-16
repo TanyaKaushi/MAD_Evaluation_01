@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Need Help</string>
+    <string name="text1">Blood Donation Application</string>
+    <string name="text2">Need Help</string>
+    <string name="text3">Add Details</string>
+    <string name="text4">Update</string>
+    <string name="text5">Delete</string>
+    <string name="text6">My Profile</string>
+    <string name="text7">Damon Salvatore</string>
+    <string name="text8">Blood Group</string>
+    <string name="text9">Update</string>
+    <string name="text10">Delete</string>
+</resources>
