@@ -25,7 +25,7 @@
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257"
+        app:layout_constraintVertical_bias="0.266"
         tools:ignore="MissingConstraints" />
 
     <Spinner
@@ -49,7 +49,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/cSpinner"
+        android:id="@+id/dSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -69,7 +69,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/dSpinner"
+        android:id="@+id/cSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -89,7 +89,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/eSpinner"
+        android:id="@+id/fSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -109,7 +109,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/fSpinner"
+        android:id="@+id/eSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -129,7 +129,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/gSpinner"
+        android:id="@+id/hSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -149,7 +149,7 @@
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/hSpinner"
+        android:id="@+id/gSpinner"
         style="@android:style/Widget.DeviceDefault.Spinner"
         android:layout_width="123dp"
         android:layout_height="47dp"
@@ -199,7 +199,7 @@
         app:layout_constraintVertical_bias="0.157" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/hospital"
         android:layout_width="226dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -218,12 +218,10 @@
         android:text="A+"
         android:textColor="@android:color/background_dark"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/aSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
@@ -324,7 +322,7 @@
         app:layout_constraintVertical_bias="0.614" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -351,7 +349,7 @@
         app:layout_constraintVertical_bias="0.76" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -378,7 +376,7 @@
         app:layout_constraintVertical_bias="0.84" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/upload"
         android:layout_width="130dp"
         android:layout_height="48dp"
         android:background="@drawable/cus_b1"
