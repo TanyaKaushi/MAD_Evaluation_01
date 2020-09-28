@@ -1,15 +1,27 @@
 package com.example.madp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class List extends AppCompatActivity {
 
     TextView at,bt,ct,dt,et,ft,gt,ht,hospital,contact,city;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +39,8 @@ public class List extends AppCompatActivity {
         hospital = findViewById(R.id.hospital);
         city = findViewById(R.id.city);
         contact = findViewById(R.id.contact);
+
+        btn = findViewById(R.id.button1);
 
         String as = getIntent().getStringExtra("aa");
         String bs = getIntent().getStringExtra("bb");
@@ -51,6 +65,67 @@ public class List extends AppCompatActivity {
         hospital.setText(hos);
         city.setText(cit);
         contact.setText(con);
+
+        DatabaseReference Ref = FirebaseDatabase.getInstance().getReference().child("add").child("1");
+        Ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()){
+                    at.setText(dataSnapshot.child("a_plus").getValue().toString());
+                    bt.setText(dataSnapshot.child("a_minus").getValue().toString());
+                    ct.setText(dataSnapshot.child("b_plus").getValue().toString());
+                    dt.setText(dataSnapshot.child("b_minus").getValue().toString());
+                    et.setText(dataSnapshot.child("ab_plus").getValue().toString());
+                    ft.setText(dataSnapshot.child("ab_minus").getValue().toString());
+                    gt.setText(dataSnapshot.child("o_plus").getValue().toString());
+                    ht.setText(dataSnapshot.child("o_minus").getValue().toString());
+                    hospital.setText(dataSnapshot.child("hospital").getValue().toString());
+                    city.setText(dataSnapshot.child("city").getValue().toString());
+                    contact.setText(dataSnapshot.child("contact").getValue().toString());
+
+                }else
+                    Toast.makeText(getApplicationContext(),"No  Source to Display",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String A = at.getText().toString();
+                String B = bt.getText().toString();
+                String C = ct.getText().toString();
+                String D = dt.getText().toString();
+                String E = et.getText().toString();
+                String F = ft.getText().toString();
+                String G = gt.getText().toString();
+                String H = ht.getText().toString();
+                String Hospital = hospital.getText().toString();
+                String City = city.getText().toString();
+                String Contact = contact.getText().toString();
+
+                Intent i = new Intent(getApplicationContext(),UpdateBloodList.class);
+                //clearControls();
+
+                i.putExtra("aa", A);
+                i.putExtra("bb", B);
+                i.putExtra("cc", C);
+                i.putExtra("dd", D);
+                i.putExtra("ee", E);
+                i.putExtra("ff", F);
+                i.putExtra("gg", G);
+                i.putExtra("hh", H);
+                i.putExtra("hospital",Hospital);
+                i.putExtra("city",City);
+                i.putExtra("contact",Contact);
+                startActivity(i);
+            }
+        });
 
 
     }

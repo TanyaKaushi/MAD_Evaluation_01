@@ -201,7 +201,7 @@
         app:layout_constraintVertical_bias="0.201" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/hospital"
         android:layout_width="226dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -326,7 +326,7 @@
         app:layout_constraintVertical_bias="0.614" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -353,7 +353,7 @@
         app:layout_constraintVertical_bias="0.76" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -380,7 +380,7 @@
         app:layout_constraintVertical_bias="0.84" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/update"
         android:layout_width="101dp"
         android:layout_height="45dp"
         android:background="@drawable/cus_b1"
@@ -397,7 +397,7 @@
         app:layout_constraintVertical_bias="0.959" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cancel"
         android:layout_width="101dp"
         android:layout_height="45dp"
         android:background="@drawable/cus_b1"
