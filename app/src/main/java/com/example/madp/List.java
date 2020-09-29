@@ -21,7 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 public class List extends AppCompatActivity {
 
     TextView at,bt,ct,dt,et,ft,gt,ht,hospital,contact,city;
-    Button btn;
+    Button btn1,btn2;
+    DatabaseReference Ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,8 @@ public class List extends AppCompatActivity {
         city = findViewById(R.id.city);
         contact = findViewById(R.id.contact);
 
-        btn = findViewById(R.id.button1);
+        btn1 = findViewById(R.id.button1);
+        btn2 = findViewById(R.id.button2);
 
         String as = getIntent().getStringExtra("aa");
         String bs = getIntent().getStringExtra("bb");
@@ -66,8 +68,8 @@ public class List extends AppCompatActivity {
         city.setText(cit);
         contact.setText(con);
 
-        DatabaseReference Ref = FirebaseDatabase.getInstance().getReference().child("add").child("1");
-        Ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference UpRef = FirebaseDatabase.getInstance().getReference().child("add").child("1");
+        UpRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()){
@@ -94,7 +96,7 @@ public class List extends AppCompatActivity {
         });
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String A = at.getText().toString();
@@ -124,6 +126,34 @@ public class List extends AppCompatActivity {
                 i.putExtra("city",City);
                 i.putExtra("contact",Contact);
                 startActivity(i);
+            }
+        });
+
+
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatabaseReference dRef = FirebaseDatabase.getInstance().getReference().child("add");
+                dRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild("1")){
+                            Ref = FirebaseDatabase.getInstance().getReference().child("add").child("1");
+                            Ref.removeValue();
+
+                            Toast.makeText(getApplicationContext(),"Details Deleted Successfully..",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(),"No Source to Delete",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
 
